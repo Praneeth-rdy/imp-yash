@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/index/main.css" />
+    <link href="/static/assets/fontawesome/css/all.css" rel="stylesheet">
+    <title>
+        Home
+    </title>
+</head>
+
+<body>
+    <div class="main-container">
+        <h1>
+            {{data}}
+        </h1>
+
+        <div class="video-wrap">
+            <video id="video" playsinline autoplay></video>
+        </div>
+
+        <div class="controller">
+            <span id="snap">
+                <i class="fa-solid fa-camera"></i>
+            </span>
+            <span id="submit">
+                <i class="fa-solid fa-arrow-right-long"></i>
+            </span>
+        </div>
+
+        <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+    <script type="text/javascript" src="/static/index/main.js">
+
+    </script>
+</body>
+
+</html>
