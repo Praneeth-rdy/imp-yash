@@ -97,9 +97,11 @@ def equalize_hist_color_hsv(img):
 def process_img(IMG):
     color_img = cv2.imread(IMG)
     resized_img = cv2.resize(color_img, (1000, 1000))
-    # final_img = resized_img[350:650, 350:650]
-    final_img = resized_img[214:514, 214:514]
-    gray_img = cv2.cvtColor(final_img, cv2.COLOR_BGR2GRAY)
+    final_img = resized_img[350:650, 350:650]
+    # final_img = resized_img[214:514, 214:514]
+    gr_img = cv2.cvtColor(final_img, cv2.COLOR_BGR2GRAY)
+    cv2.imwrite('./main/dataset/saved.jpeg', gr_img)
+    gray_img = cv2.imread('./main/dataset/saved.jpeg')
     sift = cv2.xfeatures2d.SIFT_create()
     feature_list = []
 
@@ -117,8 +119,6 @@ def process_img(IMG):
     hist = hist.astype("float")
     hist /= (hist.sum() + 1e-7)
     lbp_features.append(hist)
-
-
 
     hsv_features = []
 
@@ -235,7 +235,7 @@ def process_img(IMG):
 
     X = pd.DataFrame(Total_features).T
 
-    loaded_rf = joblib.load("/content/gdrive/MyDrive/Dataset/random_forest.joblib")
+    loaded_rf = joblib.load("./random_forest.joblib")
     preds = loaded_rf.predict(X)
 
     return preds

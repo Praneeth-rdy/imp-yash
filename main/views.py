@@ -36,9 +36,19 @@ def index(request):
             fh.write(base64.b64decode(b64ImgString.encode('UTF-8'))) 
         # Process the imgData and pass the processedData to dara variable
         data = process_img('./main/dataset/test.jpeg')
-        data = {} 
+    
+        data[0]
+        classifications = {
+            0: 'Clay Image',
+            1: 'Loom Image',
+            2: 'Loamy Sand',
+            3: 'Sand',
+            4: 'Sandy Loom',
+        }
+        print(classifications[data[0]])
+         
         return JsonResponse({
-            'processedData': data
+            'processedData': classifications[data[0]]
         })
     else:
         return render(request, "index.html", {'data': 'Welcome!'})
