@@ -44,7 +44,7 @@ submit.addEventListener('click', () => {
         method: 'POST',
         body: JSON.stringify(data)
     }
-    fetch('http://127.0.0.1:8000/', options)
+    fetch('/', options)
         .then((res) => res.json())
         .then((resData) => console.log(resData))
         .catch((err)=>console.log(err));
