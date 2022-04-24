@@ -94,15 +94,8 @@ def equalize_hist_color_hsv(img):
     eq_image = cv2.cvtColor(cv2.merge([H, S, eq_V]), cv2.COLOR_HSV2BGR)
     return eq_image
 
-def data_url_to_cv2_img(url):
-    encoded_data = url.split(',')[1]
-    nparr = np.fromstring(encoded_data.decode('base64'), np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    return img
-
 def process_img(IMG):
-    # color_img = cv2.imread(IMG)
-    color_img = data_url_to_cv2_img(IMG)
+    color_img = cv2.imread(IMG)
     resized_img = cv2.resize(color_img, (1000, 1000))
     # final_img = resized_img[350:650, 350:650]
     final_img = resized_img[214:514, 214:514]
